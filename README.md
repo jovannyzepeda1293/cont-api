@@ -1,24 +1,70 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rails Project with Redis and Sidekiq
 
-Things you may want to cover:
+This project uses Ruby on Rails, PostgreSQL, Redis, and Sidekiq for background job processing.
 
-* Ruby version
+### Requirements
+- Ruby 3.3.5
+- Rails ~> 7.1.4
+- PostgreSQL
+- Redis
+- Bundler
 
-* System dependencies
+## Environment Variables
 
-* Configuration
+### Copy the example file:
+`cp .env.example .env`
 
-* Database creation
+### Update the .env file with your local values.
+- Do not commit .env with real secrets.
 
-* Database initialization
+### Local Database Setup
 
-* How to run the test suite
+**Connect to PostgreSQL as the postgres user:** `sudo -u postgres psql`
 
-* Services (job queues, cache servers, search engines, etc.)
+**Create a user and grant permissions:**
 
-* Deployment instructions
+`CREATE USER your_database_user WITH PASSWORD 'your_database_password';`
 
-* ...
+`ALTER USER your_database_user CREATEDB CREATEROLE;`
+
+
+**Create the test database and load schema:**
+
+`rake db:create RAILS_ENV=test`
+
+`rails db:schema:load RAILS_ENV=test`
+
+### Install Dependencies
+`bundle install`
+
+### Install and Start Redis
+**Linux**
+`redis-server`
+
+**macOS with Homebrew**
+`brew install redis`
+
+`brew services start redis`
+
+*Make sure Redis is running before starting Sidekiq.*
+
+### Running the Project
+
+*Start the Rails server:*
+
+`rails s`
+
+
+*Start Sidekiq:*
+
+`bundle exec sidekiq`
+
+### Notes
+
+Redis must be running before executing Sidekiq.
+
+Use .env for environment variables.
+
+How to run tests: `rspec ./spec`
