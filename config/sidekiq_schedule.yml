@@ -1,0 +1,5 @@
+top_daily_report_job:
+  cron: "* * * * *"
+  class: "Reports::Sells::TopDailyReportJob"
+  queue: reports
+  description: "Envía el Top Daily Report a los correos de finanzas a las 6AM"

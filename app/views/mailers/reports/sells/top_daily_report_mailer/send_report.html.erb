@@ -1,0 +1,50 @@
+<div style="max-width:650px; margin:0 auto; padding:20px; background-color:#ffffff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); font-family: Arial, sans-serif; color:#333;">
+
+  <% content_for :header do %>
+    <h1 style="text-align:center; color:#004085; font-size:22px; margin-bottom:20px;">
+      📊 Reporte de Ventas Diarias
+    </h1>
+  <% end %>
+
+  <p style="font-size:14px; margin-bottom:15px;">
+    Estimado equipo financiero,
+  </p>
+
+  <p style="font-size:14px; margin-bottom:20px;">
+    Aquí está el resumen de las ventas diarias:
+  </p>
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-size:14px;">
+    <thead>
+      <tr style="background:#e9ecef; text-align:left;">
+        <th style="padding:8px; border-bottom:2px solid #dee2e6;">Fecha</th>
+        <th style="padding:8px; border-bottom:2px solid #dee2e6; text-align:right;">Ventas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% total = 0 %>
+      <% @summary.each do |date, amount| %>
+        <% total += amount %>
+        <tr>
+          <td style="padding:6px 8px; border-bottom:1px solid #f1f3f5;">
+            <%= date.strftime("%d/%m/%Y") %>
+          </td>
+          <td style="padding:6px 8px; border-bottom:1px solid #f1f3f5; text-align:right; color:#28a745; font-weight:600;">
+            <%= number_to_currency(amount, unit: "$", precision: 2) %>
+          </td>
+        </tr>
+      <% end %>
+      <tr style="background:#f8f9fa; font-weight:bold;">
+        <td style="padding:8px; border-top:2px solid #dee2e6;">TOTAL</td>
+        <td style="padding:8px; border-top:2px solid #dee2e6; text-align:right; color:#004085;">
+          <%= number_to_currency(total, unit: "$", precision: 2) %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:12px; color:#6c757d; margin-top:20px; text-align:center;">
+    Este es un correo automático, por favor no responder.
+  </p>
+
+</div>
