@@ -13,7 +13,7 @@
       <img src="./assets/0.13.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2025-08-28T10:01:55-06:00">2025-08-28T10:01:55-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2025-08-29T10:53:30-06:00">2025-08-29T10:53:30-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -29,7 +29,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.2
+         3.17
        </span>
     </span> hits/line
     )
@@ -230,7 +230,7 @@
             <td class="cell--number">24</td>
             <td class="cell--number">24</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.71</td>
+            <td class="cell--number">4.63</td>
             
           </tr>
         
@@ -241,7 +241,7 @@
             <td class="cell--number">12</td>
             <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.17</td>
+            <td class="cell--number">4.00</td>
             
           </tr>
         
@@ -733,7 +733,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.11
+         4.02
        </span>
     </span> hits/line
     )
@@ -791,7 +791,7 @@
             <td class="cell--number">24</td>
             <td class="cell--number">24</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.71</td>
+            <td class="cell--number">4.63</td>
             
           </tr>
         
@@ -802,7 +802,7 @@
             <td class="cell--number">12</td>
             <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.17</td>
+            <td class="cell--number">4.00</td>
             
           </tr>
         
@@ -3249,7 +3249,7 @@
 
             
 
-            <code class="ruby">  scope :actives, -&gt; { where(active: true, status: &quot;Vigente&quot;) }</code>
+            <code class="ruby">  scope :actives, -&gt; { where(active: true, status: &#39;Vigente&#39;) }</code>
           </li>
         </div>
       
@@ -3502,7 +3502,7 @@
 
             
 
-            <code class="ruby">    errors.add(:base, &#39;start_date and end_date must be valid dates&#39;)</code>
+            <code class="ruby">    errors.add(:base, I18n.t(&#39;errors.invalid_dates&#39;))</code>
           </li>
         </div>
       
@@ -3590,7 +3590,7 @@
 
             
 
-            <code class="ruby">    errors.add(:end_date, &#39;must be after or equal to start_date&#39;)</code>
+            <code class="ruby">    errors.add(:end_date, I18n.t(&#39;errors.end_date_after_start_date&#39;))</code>
           </li>
         </div>
       
@@ -4231,9 +4231,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="32">
+          <li class="covered" data-hits="12" data-linenumber="32">
             
-              <span class="hits">14</span>
+              <span class="hits">12</span>
             
 
             
@@ -4585,7 +4585,7 @@
 
             
 
-            <code class="ruby">        ::Invoice.where(invoice_date: start_date..end_date)</code>
+            <code class="ruby">        ::Invoice.where(invoice_date: start_date..end_date).order(invoice_date: :desc)</code>
           </li>
         </div>
       
@@ -4666,9 +4666,9 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="22">
+          <li class="covered" data-hits="12" data-linenumber="22">
             
-              <span class="hits">14</span>
+              <span class="hits">12</span>
             
 
             

@@ -32,31 +32,31 @@ RSpec.describe DateRange, type: :model do
     context 'with a missing start_date' do
       let(:start_date) { nil }
 
-      it_behaves_like 'an invalid range', :start_date, "can't be blank"
+      it_behaves_like 'an invalid range', :start_date, 'no puede estar vacío'
     end
 
     context 'with a missing end_date' do
       let(:end_date) { nil }
 
-      it_behaves_like 'an invalid range', :end_date, "can't be blank"
+      it_behaves_like 'an invalid range', :end_date, 'no puede estar vacío'
     end
 
     context 'with an invalid start_date' do
       let(:start_date) { 'invalid' }
 
-      it_behaves_like 'an invalid range', :base, 'start_date and end_date must be valid dates'
+      it_behaves_like 'an invalid range', :base, 'la fecha de inicio y fin deben ser válidas'
     end
 
     context 'with an invalid end_date' do
       let(:end_date) { 'invalid' }
 
-      it_behaves_like 'an invalid range', :base, 'start_date and end_date must be valid dates'
+      it_behaves_like 'an invalid range', :base, 'la fecha de inicio y fin deben ser válidas'
     end
 
     context 'when end date is before that start date' do
       let(:start_date) { '2025-09-28' }
 
-      it_behaves_like 'an invalid range', :end_date, 'must be after or equal to start_date'
+      it_behaves_like 'an invalid range', :end_date, 'debe ser mayor o igual a la fecha de inicio'
     end
   end
 end

@@ -16,7 +16,7 @@ class DateRange
     Time.parse(start_date.to_s)
     Time.parse(end_date.to_s)
   rescue ArgumentError
-    errors.add(:base, 'start_date and end_date must be valid dates')
+    errors.add(:base, I18n.t('errors.invalid_dates'))
   end
 
   def end_after_start
@@ -24,6 +24,6 @@ class DateRange
 
     return unless Time.parse(end_date).at_end_of_day < Time.parse(start_date).at_beginning_of_day
 
-    errors.add(:end_date, 'must be after or equal to start_date')
+    errors.add(:end_date, I18n.t('errors.end_date_after_start_date'))
   end
 end

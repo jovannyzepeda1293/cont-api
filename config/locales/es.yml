@@ -1,0 +1,23 @@
+es:
+  errors:
+    messages:
+      blank: "no puede estar vacío"
+      invalid: "es inválido"
+    end_date_after_start_date: "debe ser mayor o igual a la fecha de inicio"
+    invalid_dates: "la fecha de inicio y fin deben ser válidas"
+  activerecord:
+    models:
+      invoice: "Factura"
+      invoices: "Facturas"
+    attributes:
+      invoice:
+        invoice_number: "Número de factura"
+        total: "Total"
+        invoice_date: "Fecha de emisión"
+        status: "Estado"
+        active: "Activo"
+  activemodel:
+    attributes:
+      date_range:
+        start_date: "Fecha inicio"
+        end_date: "Fecha fin"

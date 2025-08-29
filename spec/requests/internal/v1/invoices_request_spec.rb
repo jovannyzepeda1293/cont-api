@@ -67,6 +67,16 @@ RSpec.describe 'Internal::V1::Invoices', type: :request do
         json = JSON.parse(response.body)
         expect(json['data'].count).to eq(2)
       end
+
+      context 'with a valid structure' do
+        let(:start_date) { '2025-08-05' }
+        let(:end_date) { '2025-08-05' }
+
+        it 'returns expected structure' do
+          json = JSON.parse(response.body)
+          expect(json['data']).to eq(expected_response)
+        end
+      end
     end
 
     context 'when send a valid token with pagination' do
@@ -83,11 +93,6 @@ RSpec.describe 'Internal::V1::Invoices', type: :request do
       it 'returns valid pagination records' do
         json = JSON.parse(response.body)
         expect(json['data'].count).to eq(1)
-      end
-
-      it 'returns expected structure' do
-        json = JSON.parse(response.body)
-        expect(json['data']).to eq(expected_response)
       end
     end
 
