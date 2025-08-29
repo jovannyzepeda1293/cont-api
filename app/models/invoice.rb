@@ -6,5 +6,5 @@ class Invoice < ApplicationRecord
   validates :invoice_date, :total, presence: true
   validates :total, numericality: { greater_than_or_equal_to: 0 }
 
-  scope :actives, -> { where(active: true, status: "Vigente") }
+  scope :actives, -> { where(active: true, status: 'Vigente') }
 end

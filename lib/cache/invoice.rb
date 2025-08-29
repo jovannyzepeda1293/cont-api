@@ -11,7 +11,7 @@ module Cache
       end
 
       def fetch_range_from_db(start_date:, end_date:)
-        ::Invoice.where(invoice_date: start_date..end_date)
+        ::Invoice.where(invoice_date: start_date..end_date).order(invoice_date: :desc)
       end
 
       def expires_in
